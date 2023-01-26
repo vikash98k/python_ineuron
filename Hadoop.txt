@@ -1,0 +1,76 @@
+Big Data -> Data which can not be handled by traditional databases
+         -> 5v  - > 1) Volumne - huge amount of data (GB,TB)
+                     2) Vairity - different format of data 
+                        a) structure - rows and columns 
+                        b) semi structure - schema is flexible (like json data,XML data)
+                        c) un structure - representation 
+                        like - image file ,audio file,video file
+                    3) Velocity - speed of data generation
+                        a) Batch processing -[Batch processing means we wait for some time window after we processing the data] electricity bill,credit cart bill
+                        b) real time processing - [real time means every time you processing data] streaming,live gaming,feeds
+                    4) Value - Extracting meaningful information
+                    5) Veracity - related to uncertainty in the Data
+
+Big Data Tools -> Databases [traditional,NoSql]
+               -> Storage [HDFS] [Hadoop Distributed File System]
+               -> processing [Batch and real]
+               -> Data analysis [Data lakes, persistent Storage, data warehouse lakes]
+               -> Messaging Queue [Kafka]
+               -> Schedulers [Airflow]
+               -> Cloud [Aws,Azure,GCP]
+
+Hadoop -> Distributed Computation framework [specially design for batch data processing] 
+       ->  it is used to efficiently store and process large datasets
+       -> traditional processing approach
+
+Vertical Scaling -> Adding extra capacity in existing machine [cannot extend on single system and due to some limitation like storage] 
+Horizontal Scaling -> adding more machine in the system [master slave architecture]
+
+
+Commodity Hardware -> simple machine which has storage and processing machine
+
+Distributed storage -> Break data into small peaces and store it on different machine [cluster -combination of multiple machines]
+
+Distributed Computation -> process multiple part of data on different machine at the same time
+
+Hadoop Component and Architecture -> 
+                 1) HDFS [store] [Hadoop Distributed file system]
+                 2) Map reduce [processing]
+                 3) Yarn [resource management]
+
+HDFS -------------->
+    -> HDFS is designed in such a way that it believes more in storing the data in a large chunk of blocks rather than storing small data blocks. 
+    -> It mainly designed for working on Commodity Hardware devices(inexpensive devices), working on a Distributed file system design
+
+Data storage Nodes in HDFS ------>
+
+1) Name Node (master) -> Its work as master in a Hadoop cluster that guides the Datanode(slaves).
+                      -> Its mainly used for storing MetaData(data about the data)
+                      -> MetaData Its keep track the user's activity in a Hadoop cluster
+                      -> Its manage Data Nodes 
+                      -> Its record the MetaData of all the files in the cluster ex. the location of the blocks,size of the files,hierachy where replicated data is stored.
+                    
+                    Block - > Its is smallest unit of physical memory where data is stored.
+
+Block size -> Predefined size   
+            Hadoop 2.x -> 128 MB
+            Hadoop 1.x -> 64 MB
+
+2) Data Node (slaves) -> Its are mainly utilized for storing the data in a Hadoop cluster.
+                      -> The more number of DataNode, the Hadoop cluster will be able to store more data.
+                      -> DataNode should have High storing capacity to store a large number of file blocks.
+
+Replication in HDFS ---> Its ensures the availability of the data.
+                      -> Replication is making a copy of something and the number of times you make a copy of that particular thing can be expressed as it’s Replication Factor.
+                      -> HDFS stores the data in the form of various blocks at the same time Hadoop is also configured to make a copy of those file blocks.
+                      -> By default, the Replication Factor for Hadoop is set to 3 which can be configured means you can change it manually as per your requirement.
+
+example - blocks - 4  then 4*3 = 12  blocks are made for the backup purpose
+
+This is because for running Hadoop we are using commodity hardware (inexpensive system hardware) which can be crashed at any time.
+We are not using the supercomputer for our Hadoop setup. 
+That is why we need such a feature in HDFS which can make copies of that file blocks for backup purposes, this is known as fault tolerance. 
+You can configure the Replication factor in your hdfs-site.xml file. 
+
+Rack Awareness ---->The rack is nothing but just the physical collection of nodes in our Hadoop cluster (maybe 30 to 40).
+                    A large Hadoop cluster is consists of so many Racks .with the help of this Racks information Namenode chooses the closest Datanode to achieve the maximum performance while performing the read/write information which reduces the Network Traffic. 
