@@ -1,9 +1,11 @@
 Big Data -> Data which can not be handled by traditional databases
+-> Traditional database  system deals with structured data.
+-> Big data system deals with structured, semi-structured,database, and unstructured data.
          -> 5v  - > 1) Volumne - huge amount of data (GB,TB)
                      2) Vairity - different format of data 
                         a) structure - rows and columns 
                         b) semi structure - schema is flexible (like json data,XML data)
-                        c) un structure - representation 
+                        c) un structure - does not have fixed representation 
                         like - image file ,audio file,video file
                     3) Velocity - speed of data generation
                         a) Batch processing -[Batch processing means we wait for some time window after we processing the data] electricity bill,credit cart bill
@@ -13,8 +15,9 @@ Big Data -> Data which can not be handled by traditional databases
 
 Big Data Tools -> Databases [traditional,NoSql]
                -> Storage [HDFS] [Hadoop Distributed File System]
-               -> processing [Batch and real]
-               -> Data analysis [Data lakes, persistent Storage, data warehouse lakes]
+               -> processing [Batch and real] -> Batch -> Hadoop,Spark!!! Real ->spark flink
+                   
+               -> Data analysis [Data lakes, persistent Storage, data warehouse lakes(hive)]
                -> Messaging Queue [Kafka]
                -> Schedulers [Airflow]
                -> Cloud [Aws,Azure,GCP]
@@ -73,4 +76,4 @@ That is why we need such a feature in HDFS which can make copies of that file bl
 You can configure the Replication factor in your hdfs-site.xml file. 
 
 Rack Awareness ---->The rack is nothing but just the physical collection of nodes in our Hadoop cluster (maybe 30 to 40).
-                    A large Hadoop cluster is consists of so many Racks .with the help of this Racks information Namenode chooses the closest Datanode to achieve the maximum performance while performing the read/write information which reduces the Network Traffic. 
+                    A large Hadoop cluster is consists of so many Racks .with the help of this Racks information Namenode chooses the closest Datanode to achieve the maximum performance while performing the read/write information which reduces the Network Traffic.
