@@ -1,0 +1,51 @@
+Data Warehouse ->
+                it store huge amount of data.[TB size] ,Historical data
+                it represents data in structured format
+                example - > Hive, Snowflake,Aws Redshift
+
+Benefits of Data Warehouse ->
+                            1) Better Business analysis
+                            2) Faster Queries
+                            3) Improved Data Quality
+                            4) Historical Insight
+                            
+Example Applications of Data Warehousing ->
+1)Banking
+2) Government
+3) Social Media Websites
+
+
+Data Warehouse Architecture--> 3 tier
+
+1) Bottom Tier
+2) Middle Tier
+3) Top Tier
+
+1) Bottom Tier --> It consists of data Warehouse server,usually a relational database system
+                    It transform data from multiple data sources through a process known as Extract,Transform,Load(ETL)/ELT
+
+2) Middle Tier --> OLAP (i.e. online analytical processing)
+               --> Three types of OLAP models can be used in this tier, which are known as ROLAP, MOLAP and HOLAP.
+               -->The type of OLAP model used is dependent on the type of database system that exists.
+
+3) Top Tier --> It is front-end user interface or reporting tool
+                which enables end users to conduct ad-hoc data analysis on their business data.
+
+
+OLAP --> online analytical processing
+     --> OLAP tools are designed for multidimensional analysis of data in a data warehouse,
+        which contains both historical and transactional data.
+     -->Common uses of OLAP include data mining and other business intelligence applications,
+        complex analytical calculations, and predictive scenarios,
+        as well as business reporting functions like financial analysis, budgeting, and forecast planning.
+
+OLTP --> Online transaction processing
+     --> It support transaction-oriented applications by processing recent transactions as quickly and accurately as possible.
+     --> Common uses of OLTP include ATMs, e-commerce software, credit card payment processing, online bookings, reservation systems, and record-keeping tools.
+
+
+DataLake -- > its allow use to store structured or un structured data at any scale.
+        example - > HDFS, AWS s3,Azure blob ,GCP storage.
+
+Data Mart --> A data mart is a subset of a data warehouse
+          --> It contain a smaller subset of data
