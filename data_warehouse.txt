@@ -1,6 +1,9 @@
 Data Warehouse ->
                 it store huge amount of data.[TB size] ,Historical data
                 it represents data in structured format
+                Denormalized schemas
+                Data warehouse is a Centralised system.
+                top-down model
                 example - > Hive, Snowflake,Aws Redshift
 
 Benefits of Data Warehouse ->
@@ -35,17 +38,72 @@ Data Warehouse Architecture--> 3 tier
 OLAP --> online analytical processing
      --> OLAP tools are designed for multidimensional analysis of data in a data warehouse,
         which contains both historical and transactional data.
+     -->  keep the data in de-normalized form
      -->Common uses of OLAP include data mining and other business intelligence applications,
         complex analytical calculations, and predictive scenarios,
         as well as business reporting functions like financial analysis, budgeting, and forecast planning.
+    example ---> Redshift,Hive,NoSQl,Snowflake
 
 OLTP --> Online transaction processing
      --> It support transaction-oriented applications by processing recent transactions as quickly and accurately as possible.
      --> Common uses of OLTP include ATMs, e-commerce software, credit card payment processing, online bookings, reservation systems, and record-keeping tools.
+     --> insert update delete.capture the data in real time 
+     example - >RDBMS,MYSQL,Oracle,postgresql
 
 
 DataLake -- > its allow use to store structured or un structured data at any scale.
+        --> all the data are kept independent of the source of the information.
+        --> data is not in normalized form.
         example - > HDFS, AWS s3,Azure blob ,GCP storage.
 
 Data Mart --> A data mart is a subset of a data warehouse
           --> It contain a smaller subset of data
+          --> Bottom up model
+          --> it is a decentralised system.
+          --> project-oriented in nature.
+          --> stores data from a data warehouse.
+
+
+
+                <-------------------Extract Transform Load(ETL)------------------>
+                <----------------------------------------------------------------->
+
+ETL ----->
+        1)Extract---> The first stage in the ETL process is to extract data from various sources such as transactional systems, spreadsheets, and flat files.
+                      This step involves reading data from the source systems and storing it in a staging area.
+        2)Transform--->In this stage, the extracted data is transformed into a format that is suitable for loading into the data warehouse.
+                      This may involve cleaning and validating the data, converting data types, combining data from multiple sources, and creating new data fields.
+        3)Load ------>After the data is transformed, it is loaded into the data warehouse.
+                      This step involves creating the physical data structures and loading the data into the warehouse.
+
+---->The ETL process is an iterative process that is repeated as new data is added to the warehouse. 
+----> there are many different ETL tools and technologies available, such as Informatica, Talend, DataStage, and others, that can automate and simplify the ETL process.
+---->ETL Tools: Most commonly used ETL tools are Hevo, Sybase, Oracle Warehouse builder, CloverETL, and MarkLogic.
+--->ELT - > Best for unstructured and non-relational data. Ideal for data lakes. Suited for very large amounts of data
+--> ETL - >Best for relational and structured data. Better for small to medium amounts of data 
+<---------------Extract -> Transform[all data] -> Data warehouse
+
+
+important Terminologies in Data warehouse---->
+        1) Dimension Table
+        2) Fact Table
+        3) Relationship
+        4) Star schema
+        5) Snowflake schema                
+
+
+1) Dimension Table -> It contains Dimensions of a fact.
+                   -> They are joined with the fact tables using ForeignKey
+                   -> its de-normalized
+
+
+2) Fact Table -> contain those numerical attributes which helps to drive meaningful values
+              -> its holds ForeignKey of Dimension Table
+
+3) Star schema -> one or more Fact Table and connect with any number of Dimension Table
+               -> Normalization is not used.
+               -> high data redundancy.
+
+4) Snowflake schema -> In this schema design Dimension table will be in the normalized form.
+                    -> sub dimension tables are contained.
+                    -> low data redundancy.
