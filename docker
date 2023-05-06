@@ -1,0 +1,173 @@
+docker -> container like a virtual machine 
+docker engine run natively on linux system
+docker use host operating system
+docker uses os level virtualization where vmware uses harware level virtualization
+container light weight
+container having operating system file but its small as compare then actual operating system so its neglected[~5%]
+we can changes in container not in images
+container layer file system[one by one]
+
+cloud services ->
+                Iaas -> Infra structure as a service 
+                Paas -> Platform as a service  --> docker,deal with the os
+                Saas -> Software as a service
+
+
+Advantages of Docker -> 
+1) light weight
+2) we can re-use the image
+3) it can run on physical harware/ virtual harware or on cloud
+4) no pre-allocation on RAM
+
+Dis- Advantages of Docker->
+1) container work on same environment [dependancy] [example-> container on windows doesnot work on linux or vice-versa]
+2) it is not good solution of GUI [graphics user interface]
+3) difficult of large container
+4) no solution for data recovery and backup
+5) it is suitable when the development os and testing os are same. 
+
+
+docker ecosystem-->
+                1) docker client [docker file]
+                2) docker daemon or docker engine or server [create image,convert container to image,run docker commands]
+                3) docker hub or registry
+                4) docker images [ templates]
+                5) docker compose
+
+
+Docker Daemon ----->
+                    its run on the host os
+                    docker daemon can communicate with other daemons
+        
+Docker Client ----->
+                    docker user can be interact with docker daemon through a docker client [CLI]
+                    it is possible for docker client to communicate with more then one daemon
+
+Docker Host ----->
+                 it contains docker daemon,images,container,network,storages
+
+Docker Hub or registry --->
+                          manage and stores the docker images
+                          public registry[docker hub]
+                          private registry
+
+Docker Networking -> Its provides complete isolation for docker containers.
+                    It means a user can link a docker container to many networks
+            types ->
+                1) Bridge -> default network driver
+                            We can use this when different containers communicate with the same docker host. 
+
+                2) Host -> When you don’t need any isolation between the container and host then it is used.
+                3) Overlay -> For communication with each other, it will enable the swarm services.
+                4) None -> t disables all networking.
+                5) macvlan -> This network assigns MAC(Media Access control) address to the containers which look like a physical address. 
+
+Operations of Docker Cloud---->
+        1) Nodes -> Connection between the cloud services provider such as MS Azure and AWS to run containers. 
+        2)Data Processing-> Provide big data processing as a service package.
+        3)Cloud Repository:– Provide a platform where we can store a number of versions in a specific Docker Image.
+        4)Continuous Implementation:– Connect with GitHub and build a continuous integration pipeline.
+        5)App Deployment:– Scale the Infrastructure and Containers with deployment.
+        6)Consist Deployment:– it can be automated deployment.
+Docker Images ---->
+                  docker images are read only binary templates used to create docker container
+    way to create images->
+    1) take image from docker hub
+    2) create image from docker file
+    3) create image from existing container
+
+Docker Container---->
+                    container hold the entire packages that is needed to run the application
+                    image is a template and the container is a copy of that template
+                    images  becomes container when they run on docker engine
+
+
+
+Basic commands in Docker---->
+
+1) to see all images present in our local machine->
+                                    command - > docker images
+
+2) to find out images in docker hub ->
+                                command - > docker search jenkins[docker search ubuntu]
+
+3) to download image from docker hub to local machine ->
+                                command -> docker pull jenkins(name of tool/software)
+
+4) To give name to container -> 
+                        command -> docker run -it --name vikash(container name) (image_name) /bin/bash
+                        i -> interactive mode
+                        t -> terminal
+
+5) to check service is start or not ->
+                        command -> service docker status
+
+6) to start container ->
+                    command -> docker start container_name
+
+7) to go inside container ->
+                    command -> docker attach container_name
+
+8) to see all container ->
+                    command -> docker ps -a
+
+9) to see only running container ->
+                    command -> docker ps(process status)
+
+10) to stop container ->
+                command -> docker stop container
+
+11) to delete container ->
+                command -> docker rm(remove) container_name
+
+12) cd tmp - difault directory
+
+13) docker diff container_name  - show changes after creating a container
+
+14) dockert commit newcontainer_name updateimage_name - create image of container 
+
+15) now create container from this image ->  docker run -it --name new_container_name update_image_name
+
+16) Dockerfile -> text file,automation of Docker image creation , file must be Dockerfile name
+
+
+------------------------------------------------------------------------
+Docker Components -> command should be capital
+
+1) FROM -> for the base image this command must be on the top of the docker file
+2) RUN -> to execute commands, it will create a layer in image
+3) MAINTAINER -> Author|Owner|Description
+4) COPY -> copy from the local machine(docker VM), provide source and destination
+           we cannot download from the internet to local
+5) ADD -> similar to copy and also download from the internet and also extract
+6) EXPOSE -> to expose port number such as port 8080 for tomcat,port 80 for nginx etc
+7) WORKDIR -> to set working directory for a container
+8) CMD -> execute commands but during container creation
+9) ENTRYPOINT -> first command execute by ENTRYPOINT only,same as CMD
+10) ENV -> environment varibles
+11) ARG(build time variables) -> running containers cant access values of ARG variables
+                                define the name of parameter and its default value
+
+
+------------------------------------>
+step ->
+1) create a filename Dockerfile
+2) Add instructions in Dockerfile
+3) Build Dockerfile to create image
+4) Run image to create container
+
+commands ->>>
+            FROM ubuntu : (version) if you added version
+            RUN echo "message" > tmp/testfile_name
+
+            To create out of docker file -> docker build -t(tag) myimg .(dot means current directory)
+            now create container from the images
+            docker run -it --name container_name myimg(image_name-image to create container) /bin/bash
+
+--->method -2--->
+                FROM
+                WORKDIR
+                RUN
+                ENV 
+                COPY
+                ADD 
