@@ -1,0 +1,25 @@
+Important AWS services for Big Data Engineer---->
+                                            1) AWS S3 (simple storage services)
+                                            2) Database services ->
+                                                        RDS(relational Database services)(Mysql,postgres)
+                                            3) NoSQL Database->
+                                                               AWS DynamoDB(key-value)
+                                            4) Serverless service ->
+                                                                AWS Lambda
+                                            5) Serverless DB services->
+                                                                    AWS athena
+                                            6) AWS EMR (managed cluster)
+                                            7) AWS Glue(managed ETL service)
+                                            8) For infrastructure -> 
+                                                                    AWS EC2
+                                            9) Data warehouse -> 
+                                                            AWS Redshift
+                                            10) for scheduling and monitoring ->
+                                                                            AWS cloud watch
+                                                                            AWS event bridge
+                                            11) SNS (simple notification service)
+                                            12) SQS (simple Queue service)
+                                            13) for deshboard ->
+                                                            AWS Quicksight
+                                            14) for authentication -> 
+                                                                AWS IAM 

@@ -171,3 +171,16 @@ commands ->>>
                 ENV 
                 COPY
                 ADD 
+
+--->volume - 
+            we declare directory as a volume
+            even if we stop container we will access volume
+            volume can be created in one container
+            we can declared a directory as a volume only while creating container
+            we cannot create volume from existing container
+            we can share one volume any numbedr of container
+            volume will not be included when you update an image
+            we can mapped volume in two ways->
+            1) container <----> container
+            2) host <----> container
+            
