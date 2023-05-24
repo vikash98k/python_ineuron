@@ -1,7 +1,38 @@
-string = "AABC"
-n = len(string)
-if string == string[::-1]:
-    print(0)
-else:
-    string = string[0:n-1]+string[::-1]
-    print(string)
+res = {"Records":[
+      {
+         "eventVersion":"2.1",
+         "eventSource":"aws:s3",
+         "awsRegion":"ap-south-1",
+         "eventTime":"2023-05-24T11:36:55.924Z",
+         "eventName":"ObjectCreated:Put",
+         "userIdentity":{
+            "principalId":"A3VKTBN8DHSOML"
+         },
+         "requestParameters":{
+            "sourceIPAddress":"103.179.1.87"
+         },
+         "responseElements":{
+            "x-amz-request-id":"QBVX512YK9XC7MZ6",
+            "x-amz-id-2":"n6XeygZW8/xq1161wuYMYcx0kwE+G5WM5qn6Ycsg9vRV99O7KcIAx8QBwQVo1ky0vYmQNYPPtTFgjC5UdxXunhMmqXhi9Csg1/qgVI05BVE="
+         },
+         "s3":{
+            "s3SchemaVersion":"1.0",
+            "configurationId":"send-notification-to-s3",
+            "bucket":{
+               "name":"databucket42",
+               "ownerIdentity":{
+                  "principalId":"A3VKTBN8DHSOML"
+               },
+               "arn":"arn:aws:s3:::databucket42"
+            },
+            "object":{
+               "key":"Sample-Spreadsheet-10-rows.csv",
+               "size":1098,
+               "eTag":"b8db5d49378a594985c1161b7ad3a3b7",
+               "sequencer":"00646DF6D7DFD09582"
+            }
+         }
+      }
+]
+}
+print(res["Records"][0]["s3"]["object"]["key"])
