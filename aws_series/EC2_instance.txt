@@ -1,0 +1,216 @@
+Elastic Compute cloud (EC2)->
+
+1) Scalable Computing Capacity in the AWS cloud
+2) instance <-> virtual server/virtual machine
+3) configurate security and networking and manage storage
+4) Aws EC2 enables us to Scale up and down the instance
+5) Amazon EC2 is having two storage options EBS and instance store
+6) By default we create 20 instance in a single region with two default high I/O instance
+7) Type of EC2 instance -> 
+                        a) general purpose  - Balanced Memory and CPU
+                        b) Compute optimized - More CPU than RAM
+                        c) Memory optimized - More RAM
+                        d) storage optimized - low Latency
+                        e) Accelerated Computing - Graphics optimized
+                        f) High Memory optimized - High RAM netro system
+                        g) Privious Generation
+
+
+
+a) Gereral Purpose Instance -> provide a Balanced of Memory and networking resources and can be used for a variety of workloads
+                            -> 3 series in general purpose
+                            i) A series -> A1(medium large)
+                            ii) M series(large) -> M4,M5,M5a,M5ad,M5d
+                            iii) T series -> T2(tr-micro free),T3,T3a [available all 4 sizes of instance]
+                            -> instances available in four size -> NANO,SMALL,medium,large
+
+
+            i) A1 -instance ---->
+                                it suited for scale-out workloads that are supported by the arm Ecosystem
+                                well suited application->
+                                                       a) webserver
+                                                       b) Containerized micro services
+                                                       c) Caching fleets
+                                                       d) Distributed data stores
+                                                       e) application the requires Arm instruction set
+
+            ii) M -series ---> 
+                            M4 instance -> it is a custom intel xeon E5-2675 v3 haswell processor optimized specifically for EC2
+
+                            VCPU - 2 to 40(max)
+                            RAM - 8GB to 160GB(max)
+                            instance storage - EBS only(root volume)
+
+                            M5,M5a,M5d,M5ad instance -> there instance provide and ideal cloud infrastructure,offering a balance of compute,
+                                                       memory and Networking Resources for a broad Range of applications  
+
+                                                    used in --> Gaming server,Web Server,SMALL and medium Database
+                                                    VCPU - 2 to 96(max)
+                                                    RAM  - 8 to 384(max)
+                                                    instance storage - EBS and NVM(nitro virtualization) SSD
+            iii) T -series --->
+                            baseline level of cpu performance(5 to 40% used) with the ability to burst to a higher level required by workloads
+                            used for -> 
+                                      website and webapp
+                                      code repositories
+                                      Development,build,test
+                                      micro services
+                            VCPU - 2 to 8
+                            RAM - 0.5 to 32GB
+
+b) Compute optimized (c-series C4,C5,C5n)---->
+                                        It is ideal for compute bound applications that benefit from high performance processor
+
+                C4 instance ----------->
+                        Three type are available -c4,c5,c5n c3(prrevious instance not part of compute optimized)
+
+                        C4-> c4 instance are optimized for compute intensive workloads and deliver very cost effective high performance at a low price per compute ratio
+                        VCPU - 2 to 36
+                        RAM  - 3.75 to 60GB
+                        Network bandwidth - upto 10 Gbps
+                        Instance Storage - EBS only 
+                        used by -> web server,batch processing,video encoding,MMO Gaming
+
+                c5 instance ---------->
+                    C5 are optimized for compute intensive workloads and delivers cost-effective,high performance at a low price per compute Ratio
+                    powered by aws nitro system
+                    VCPU - 2 to 72
+                    RAM  - 4 to 192GB
+                    Network bandwidth - upto 25 Gbps
+                    Instance Storage - EBS only(lower performance) and NVMe SSD(high performance) 
+                    used by -> web servers,Gaming,high performance
+
+                    C5 supported max 25 EBS volume
+                    c5 use Elastic Network Adaptor
+                    C5 use new EC2 Hypervisor
+
+c) Memory optimized (R,X,Z series)----->
+                -->Memory optimized instance are designed to deliver fast performance for workloads that process large data sets in memory       
+
+            a) R4,R5,R5ad,R5d,R5a ----->
+                        High Performace,relational(mysql) and Nosql(mongoDB,cassandra) databases
+                        Distributed web scale cache stores that provide in-memory caching of key value type data
+                        used in financial services ,Hadoop
+
+                        VCPU - 2 to 96
+                        RAM - 16 to 768Gb
+                        Instance storage - EBS only and NVMe SSD 
+
+            b) X1,Xle Instances ->
+                        well suited for high performance database,memory intensive enterprise application relational Database workload SAP HANA
+
+                        Electronic Design Automation
+                        VCPU - 4 to 128
+                        RAM - 122 to 394GB
+                        Instance storage - SSD
+            
+            c) Z1d Instance -> 
+                High performance zid delivers a sustained all core frequency of upto 40 GHz the fasted of any cloud instances
+                Aws Nitro system Xeon Processor Upto 18TB of intance storage
+                VCPU - 2 to 48
+                RAM - 16 to 384 GB
+                Storage - NVMe SSD
+                use cases ->
+                        Electornic Design,Automation and Certain Databases workloads with high per-core licensing cost
+
+
+d) storage optimized instances(I,D,H series) ---->
+                    This instance are designed for workloads thar require sequential read and write access to very large data set on local storage
+                    They are optimized to deliver tens of thousands of low latency random I/O operations per second (IOPS) to application
+
+                    D2 instance -->
+                            massive parallel processing(MPP) data warhouse
+                                Map reduce and Hadoop distributed Computing
+                                Log or Data Processing app
+                                VCPU - 4 to 36
+                                RAM - 30.5 to 244GB
+                                storage -SSD
+                    H1 intance -->
+                            This Family Features upto 16TB of HDD Based local storage
+                            High disk throughput and balance of Compute and Memory
+                            well suited for app requiring sequential access to large amounts of data an direct-attached instance storage
+                            application that require high throughput access to large quantities of data
+
+                            VCPU - 8 to 64
+                            RAM - 32 to 256GB
+                            storage - HDD
+
+                    I3 and I3en Instances-->
+                                High Frequency online Transcation processing system(OLAP)
+                                Relational Databases,NOSQL Databases,Distributed file system,Data Warehousing application
+                                VCPU - 2 to 96
+                                RAM - 16 to 768GB
+                                local storage - NVme SSD
+                                Networking Performance - 25GBPS to 100GBPS
+                                Sequential throughput ->
+                                        Read - 16 GB/S (I3 or I3en)
+                                        write - 6.4 GB/S (I3)
+                                        write - 8 GB/S (I3en)
+
+e) Accelerated optimized Instance(P,G,F instance) ->
+                    This instance use hadware accelerator or co-processors to perform same functions such as floating point number calculation graphics processing or data pattern matching more efficiently
+                    than is possible in sofware running on CPUS
+
+                F1 Intance ->
+                        field Programmable Gate arrays (FPGA)
+                            Each FPGA Contains 2.5 million logic elements and 6800 DSP(digital signal processing) engines
+                            Design to accelerate COmputationally intensive alog. such as data flow or highly parallel operations
+                            F1 provides local NVM SSD storage
+                            VCPU - 8 to 64
+                        FPGA - 1 to 8
+                        RAM - 122 to 976 GB
+                            Storage - NVMe SSD
+                        
+                        Used in - Genomics Reaseach,financial Analytics Real Time Video Processing and Big Data Search
+
+                P2 and P3 Intance -> It uses NVIDIA Tesla GPUs
+                            Provide High Bandwidth Networking
+                            Upto 32Gb of memory Per GPUs,which makes then Ideal for deep
+                            Learning And Computational fluid Dyanmics`
+                P2 Instance->
+                    VCPU - 4 to 64
+                    GPU - 1 to 16
+                    RAM - 61 to 732GB
+                    GPU RAM - 12 to 192 GB
+                    Network Bandwidth - 25GBPS
+
+                P3 Instance->
+                    VCPU - 8 to 96
+                    GPU - 1 to 8
+                    RAM - 61 to 768 GB
+                    GPU RAM - 12 to 192 GB
+                    STORAGE - SSD and EBS
+
+                G2 and G3 Intance ->
+                        optimizes for Graphics Intensive application
+                        well suited for app like 3D visualisation 
+                        G3 Instances use NVIDIA Tesla
+                        M60 GPU and provide a cost effective high performance platform for Graphics applications
+
+                        VCPU - 4 to 64
+                        GPU  - 1 to 4
+                        RAM - 30.5 to 488 GB
+                        GPU Memory - 8 to 32GB
+                        Network Performance - 25GBPs
+                    used in - Video Creation Services,3D visualisation streaming Graphics Intensive application
+
+f) High Memory Instance(U-series) -->
+                    High Memory Instance are purchase built to run large in memory databases,including production developements of SAP HANA in the cloud
+                    features ->
+                        Big-data processing engines such as Apache Spark or Presto.
+                        ->latest Generation intel xeon pentium 8176M Processor
+                            ->6,9,12TB of instance memory the largest of any Ec2 Instance
+                        ->Powered by the aws Nitro system a combinatin of dedicated hardware and lighweight hypervisor
+                        ->Bare metal performance with direct access to host hardware
+                        -> EBS optimized by default at no addtional Cost
+                            -> Model NO - U-6tb1.metal,U-9tb1.metal,U-12tb1.metal (tb-tera byte)
+                            -> Network Performance - 25 GBPS
+                        -> Dedicated EBS Bandwidth - 14GBPS
+                        -> Each instance offer 448 logical processor 
+            Important->
+                    ->High Memory Intances are bare metal instances and do not run on a hypervisor
+                    ->Only available under dedicate host purchasing Category(for 3yr. term)
+                    ->O.S directly on harware
+    
+g) Previous Generation Instance - > T1,M1,C1,CC2,M2,CR1,CG1,i2,HS1,M3,C3 and R3
+

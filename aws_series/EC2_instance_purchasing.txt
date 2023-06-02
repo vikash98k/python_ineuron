@@ -1,0 +1,10 @@
+EC2 instance purchasing Options --->
+                    On Demand -> real time scenarios
+                    Dedicated Instance 
+                    Dedicated Host
+                    Spot Instace
+                    Schedule Instance 
+                    Reserved Instance 
+
+
+
