@@ -1,0 +1,84 @@
+Problem Statement - New York City is a thriving metropolis and just like most other cities of similar size, one of the biggest problems its residents face is parking. The classic combination of a huge number of cars and a cramped geography is the exact recipe that leads to a large number of parking tickets.
+ 
+In an attempt to scientifically analyse this phenomenon, the NYC Police Department regularly collects data related to parking tickets. This data is made available by NYC Open Data portal. We will try and perform some analysis on this data.
+
+Download Dataset - https://data.cityofnewyork.us/browse?q=parking+tickets
+
+Note: Consider only the year 2017 for analysis and not the Fiscal year.
+
+The analysis can be divided into two parts:
+ 
+Part-I: Examine the data
+
+1.) Find the total number of tickets for the year.
+select count(*) from parking_data_orc where issue_date like '%/2017';
+ans: 
+
+2.) Find out how many unique states the cars which got parking tickets came from.
+select count(distinct state) from parking_data_orc;
+ans: 95
+
+3.) Some parking tickets don’t have addresses on them, which is cause for concern. Find out how many such tickets there are(i.e. tickets where either "Street Code 1" or "Street Code 2" or "Street Code 3" is empty )
+select count(*) from parking_data_orc where street_code_1== '' or street_code_2== '' or street_code_3== '';
+ans: 0
+
+
+Part-II: Aggregation tasks
+
+1.) How often does each violation code occur? (frequency of violation codes - find the top 5)
+select violation_code, count(*) as frequency from parking_data_orc group by violation_code order by frequency desc limit 5;
+ans: 21	1528577
+     36	1400614
+     38	1062302
+     14	893493
+     20	618592
+     Time taken: 6.57 seconds, Fetched: 5 row(s)
+
+     
+2.) How often does each vehicle body type get a parking ticket? How about the vehicle make? (find the top 5 for both)
+select vehicle_body_type, count(*) as frequency from parking_data_orc group by vehicle_body_type order by frequency desc limit 5;
+ans: SUBN	3719796
+     4DSD	3082006
+     VAN	1411964
+     DELV	687324
+     SDN	438191
+     Time taken: 6.503 seconds, Fetched: 5 row(s)
+     
+select vehicle_make, count(*) as frequency from parking_data_orc group by vehicle_make order by frequency desc limit 5;
+ans: FORD	1280956
+     TOYOT	1211447
+     HONDA	1079237
+     NISSA	918590
+     CHEVR	714654
+     Time taken: 6.448 seconds, Fetched: 5 row(s)
+     
+     
+3.) A precinct is a police station that has a certain zone of the city under its command. Find the (5 highest) frequencies of:
+      a.) Violating Precincts (this is the precinct of the zone where the violation occurred)
+      select violation_precinct, count(*) as frequency from parking_data_orc where violation_precinct is not null group by violation_precinct order by frequency desc limit 5;
+      ans: 0	2072400
+           19	535671
+           14	352450
+           1	331810
+           18	306920
+           Time taken: 6.456 seconds, Fetched: 5 row(s)
+
+
+      
+      b.) Issuer Precincts (this is the precinct that issued the ticket)
+      select issuer_precinct, count(*) as frequency from parking_data_orc where issuer_precinct is not null group by issuer_precinct order by frequency desc limit 5;
+      ans: 0	2388475
+           19	521513
+           14	344977
+           1	321170
+           18	296554
+           Time taken: 6.459 seconds, Fetched: 5 row(s)
+
+
+4.) Find the violation code frequency across 3 precincts which have issued the most number of tickets - do these precinct zones have an exceptionally high frequency of certain violation codes?
+select issuer_precinct, count(violation_code) as f  from parking_data_orc where issuer_precinct=0 or issuer_precinct= 19  or issuer_precinct= 14 and violation_code is not null group by issuer_precinct  order by f desc;
+ans: 0	2388475
+19	521507
+14	344975
+Time taken: 6.5 seconds, Fetched: 3 row(s)
+ans: Yes
