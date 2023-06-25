@@ -1,0 +1,18 @@
+Sql   -> Raw and Column(data model)
+      -> pre-define schema(data structure)
+      -> vertical scalable(Scalability)
+      -> structure query lang (query lang)
+      -> ACID (Degine Property)
+
+
+NOSQL -> key-value pair,Column-oriented,Graph-based,Document-oriented(data model)
+      -> Dynamic schema(data structure)
+      -> Horizontal (Scalability)
+      -> According to No SQl DB (query lang)
+      -> BASE/CAP
+
+CAP -> Consistency, Availability & Partition Tolerance(CP or AP or CA)
+
+
+Mongodb - its document oriented database
+        - its work on collection and document
