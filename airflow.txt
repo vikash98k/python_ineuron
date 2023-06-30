@@ -1,0 +1,52 @@
+workflow ->
+        A set of steps to accomplish a given Data Engineering task. These can include any given task,
+        such as downloading a file, copying data, filtering information, writing to a database, and so forth.
+        A workflow is of varying levels of complexity. Some workflows may only have 2 or 3 steps,
+        while others consist of hundreds of components.
+
+Airflow -> Airflow is a platform to program workflows (general), including the creation, scheduling, and monitoring of workflows.
+        -> Airflow implements workflows as DAGs, or Directed Acyclic Graphs.
+        -> Airflow can be accessed and controlled via code, via the command-line, or via a built-in web interface.
+
+Key features of Apache Airflow include:
+
+Directed Acyclic Graphs (DAGs): Workflows in Airflow are represented as DAGs, where each task is a node,
+                                and the dependencies between tasks are represented by edges.
+                                This allows for easy visualization and management of complex workflows.
+
+Task Scheduling:
+                Airflow provides a scheduler that can execute tasks based on their dependencies and schedule settings.
+                It supports various scheduling options such as time-based schedules, interval-based schedules, and cron expressions.
+
+Dependency Management:
+                     Airflow allows you to define dependencies between tasks,specifying the order in which tasks should be executed.
+                     Tasks can depend on the successful completion of other tasks, specific time intervals, or external triggers.
+
+Extensibility:
+             Airflow provides a rich ecosystem of operators and hooks for interacting with a wide range of systems and technologies.
+             It supports a variety of integrations with databases, cloud platforms, message brokers, and more. Additionally, you can create custom operators and hooks to interact with your own systems.
+
+Monitoring and Alerting:
+                        Airflow provides a web-based user interface where you can monitor the status of your workflows, view task logs, and track task execution progress.
+                        It also supports integration with popular monitoring and alerting tools such as Grafana, Prometheus, and Slack.
+
+Scalability:
+           Airflow is designed to handle large-scale workflows and can distribute task execution across multiple worker nodes.
+           It supports parallel execution of tasks and can scale horizontally as your workflow demands increase.
+
+
+Airflow Architecture ->
+        1) DAGs
+        2) operators ->Operators define individual tasks within a DAG.
+                        [BashOperator,PythonOperator,SQLOperator etc]
+        3) scheduler
+        4) executor ->execution across multiple workers [LocalExecutor,CeleryExecutor,KubernetesExecutor]
+        5) MetaData databases-> Airflow uses a metadata database to store information about DAGs, tasks, task states, execution logs, and other metadata.
+                                The metadata database can be configured to use various database backends, such as SQLite, MySQL, or PostgreSQL
+        6) Web Interface-> Airflow provides a web-based user interface called the Airflow UI.
+                           It allows users to monitor the status of DAGs and their tasks, view execution logs, manually trigger DAG runs, and perform other administrative tasks.
+        7) Scheduler and Worker Nodes-> Airflow can be deployed in a distributed manner, where the scheduler and worker nodes run on separate machines.
+                        The scheduler assigns tasks to available workers for execution.
+
+
+

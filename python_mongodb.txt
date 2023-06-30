@@ -2,10 +2,9 @@ Sql   -> Raw and Column(data model)
       -> pre-define schema(data structure)
       -> vertical scalable(Scalability)
       -> structure query lang (query lang)
-      -> ACID (Degine Property)
+      -> ACID (Degine Property)[Atomicity, Consistency, Isolation, and Durability]
 
-
-NOSQL -> key-value pair,Column-oriented,Graph-based,Document-oriented(data model)
+NOSQL -> key-value pair,Column-oriented(HBASE ,Cassandra),Graph-based,Document-oriented(data model)
       -> Dynamic schema(data structure)
       -> Horizontal (Scalability)
       -> According to No SQl DB (query lang)
@@ -13,6 +12,13 @@ NOSQL -> key-value pair,Column-oriented,Graph-based,Document-oriented(data model
 
 CAP -> Consistency, Availability & Partition Tolerance(CP or AP or CA)
 
+CA - RDBMS
+AP - Cassandra
+CP - Mongodb
 
 Mongodb - its document oriented database
         - its work on collection and document
+        - high performance,high Availability,easy Scalability
+
+BASE - > Basic Availability soft state evantuality Consistent
+
