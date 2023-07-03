@@ -13,6 +13,7 @@ Key features of Apache Airflow include:
 Directed Acyclic Graphs (DAGs): Workflows in Airflow are represented as DAGs, where each task is a node,
                                 and the dependencies between tasks are represented by edges.
                                 This allows for easy visualization and management of complex workflows.
+                                It is a data pipeline in Airflow which is defined in Python
 
 Task Scheduling:
                 Airflow provides a scheduler that can execute tasks based on their dependencies and schedule settings.
@@ -49,4 +50,8 @@ Airflow Architecture ->
                         The scheduler assigns tasks to available workers for execution.
 
 
-
+Benefits of using Apache Airflow ->
+        1) The pipelines are generated dynamically and are configured as code using Python programming language.
+        2) Automate your Queries,PythonCode
+        3) Task Dependency management(branching)
+        4) It provides a default alerting system on tasks failed

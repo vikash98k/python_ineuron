@@ -1,0 +1,19 @@
+1)What is Hadoop, and what are its core components?
+2)Explain the concept of Hadoop Distributed File System (HDFS).
+3)What is the role of MapReduce in Hadoop?
+4)What is the purpose of NameNode and DataNode in HDFS?
+5)Describe the advantages of using Hadoop for big data processing.
+6)What are the different modes of running Hadoop jobs?
+7)Explain the concept of data locality in Hadoop.
+8)What is the significance of the YARN framework in Hadoop?
+9)Describe the differences between input split and block in Hadoop.
+10)How does Hadoop ensure fault tolerance in distributed processing?
+11)What is speculative execution in Hadoop, and why is it important?
+12)Explain the concept of combiners in MapReduce.
+13)Discuss the differences between Hadoop 1 and Hadoop 2 (YARN-based architecture).
+14)What is the role of secondary NameNode in Hadoop?
+15)Describe the working mechanism of Hadoop's shuffle phase.
+16)Explain the concept of data skew in Hadoop, and how to handle it.
+17)What is the purpose of HBase in the Hadoop ecosystem?
+18)Discuss the differences between Hadoop and Spark.
+19)Describe the process of job scheduling and resource management in YARN.
