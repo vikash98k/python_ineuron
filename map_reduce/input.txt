@@ -1,0 +1,4 @@
+This is an example input file.
+It contains some sample text for testing purposes.
+Each line will be processed independently.
+You can modify this file as needed.
