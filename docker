@@ -7,10 +7,12 @@ container having operating system file but its small as compare then actual oper
 we can changes in container not in images
 container layer file system[one by one]
 
+key component ->Docker Engine,Docker Image,Docker Container
+dockerd - Docker daemon
 cloud services ->
-                Iaas -> Infra structure as a service 
-                Paas -> Platform as a service  --> docker,deal with the os
-                Saas -> Software as a service
+                Iaas -> Infra structure as a service (IaaS provides virtualized infrastructure resources)[virtual machines, storage, and networking infrastructure]
+                Paas -> Platform as a service  --> docker,deal with the os(PaaS offers a platform for application development and deployment,)[deploy, and manage applications ]
+                Saas -> Software as a service ( SaaS delivers complete software applications over the internet.)
 
 
 Advantages of Docker -> 

@@ -1,0 +1,20 @@
+What is Hive and why is it used?
+How do you create a table in Hive?
+How do you load data into a Hive table?
+What is the difference between an external table and a managed table in Hive?
+How do you query data from a Hive table?
+What is Hive partitioning and how does it improve query performance?
+How do you add a new column to an existing Hive table?
+What is Hive metastore and why is it important?
+How do you join tables in Hive? Provide an example.
+Explain the concept of bucketing in Hive and its benefits.
+How do you optimize Hive queries for better performance?
+What is HiveQL and how is it different from SQL?
+What is the Hive SerDe library? How is it used?
+Explain Hive transactional tables and their significance.
+How do you implement user-defined functions (UDFs) in Hive?
+What is the role of Hive in big data processing frameworks like Hadoop and Spark?
+Describe Hive's query optimization techniques and query planning process.
+How does Hive handle data skewness and what techniques can be used to mitigate it?
+Explain the process of data serialization and deserialization in Hive.
+What are the limitations and challenges of Hive in terms of real-time processing and low-latency queries?.

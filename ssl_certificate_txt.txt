@@ -1,0 +1,7 @@
+Https works on SSL and TLS 
+SSL - secure socket layer
+TLS - Transport layer security
+
+encrypt data webserver and browser 
+regular SSL certificate - lock icon
+extend SSL certificate -banking system
